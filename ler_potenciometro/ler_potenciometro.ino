@@ -25,7 +25,7 @@ void setup() {
 
 void loop() {
   
-   if(cont == 3){
+   if(cont == 9){
     if(i==0)
       i = 1023;
  
@@ -35,7 +35,7 @@ void loop() {
     cont = 0;
    }
 
-  if (millis() - timeold >= 1000)
+  if (millis() - timeold >= 100)
   {
     detachInterrupt(0);
     rpm = (60 * 1000 / pulsos_por_volta ) / (millis() - timeold) * pulsos;
@@ -47,7 +47,7 @@ void loop() {
   //valor_potenciometro = analogRead(potenciometro);
   analogWrite(Pin_PWM, i);
 
-  delay(1000);
+  delay(100);
   print_serial();
 
   cont++;
@@ -55,10 +55,9 @@ void loop() {
 
 void print_serial(){
 
-  Serial.print("PWM=");
   Serial.print(i);
-  Serial.print(", RPM=");
+  Serial.print(",");
   Serial.print(rpm);
-  Serial.print(", Cont=");
+  Serial.print(",");
   Serial.println(cont);
 }
