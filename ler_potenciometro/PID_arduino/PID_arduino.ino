@@ -62,7 +62,7 @@ void loop() {
   }
 
   print_serial(Input);
-  delay(100);  // Aguarda 100 milissegundos entre as iterações
+  delay(1000);  // Aguarda 100 milissegundos entre as iterações
 }
 
 void print_serial(double valor){

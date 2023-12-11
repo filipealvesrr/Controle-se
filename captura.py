@@ -4,11 +4,11 @@ import time
 
 
 ser = serial.Serial('COM4', 9600)  
-totalAmostras = 30
+totalAmostras = 100
 
 with open('dados.csv', 'w', newline='') as csv_file:
     csv_writer = csv.writer(csv_file)
-    csv_writer.writerow(['PWM', 'RPM', 'Cont']) 
+    csv_writer.writerow(['RPM']) 
 
     try:
         contAmostras = 0
