@@ -9,10 +9,9 @@
 const int Pin_rotacao = 2;
 const int Pin_PWM = 9;
 
-// Variáveis do PID
-double Setpoint = 950;  // RPM desejada
+double Setpoint = 950;  
 double Input, Output;
-double Kp =  0.1, Ki = 0.01, Kd = 0.001;  // Ajuste esses valores conforme necessário
+double Kp =  0.1, Ki = 0.01, Kd = 0.001;  
 PID myPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
 
 volatile byte pulsos;
@@ -31,14 +30,14 @@ void setup() {
   pulsos = 0;
   timeold = millis();
 
-  // Inicialização do PID
+  
   myPID.SetMode(AUTOMATIC);
-  myPID.SetSampleTime(1000);  // Intervalo de amostragem em milissegundos
+  myPID.SetSampleTime(1000);  
 }
 
 void loop() {
   if (Setpoint < 1000) {
-    Setpoint += 5;  // Aumenta gradualmente
+    Setpoint += 5;  
   }
   
   if (millis() - timeold >= 1000) {
@@ -50,21 +49,21 @@ void loop() {
 
     myPID.Compute();
 
-    // Limita a saída entre 0 e 255
+    
     Output = constrain(Output, 0, 255);
 
-    // Ajuste do PWM com base na saída do PID
+    
     analogWrite(Pin_PWM, Output);
 
-    // Reinício do temporizador
+    
     timeold = millis();
     attachInterrupt(digitalPinToInterrupt(Pin_rotacao), contador, FALLING);
   }
 
   print_serial(Input);
-  delay(1000);  // Aguarda 100 milissegundos entre as iterações
+  delay(1000); 
 }
 
 void print_serial(double valor){
-  Serial.println(Input);  // Mostra a RPM medida
+  Serial.println(Input);  
 }
