@@ -65,5 +65,5 @@ void loop() {
 }
 
 void print_serial(double valor){
-  Serial.println(Input);  
+  Serial.println(valor);  
 }
