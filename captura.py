@@ -3,10 +3,10 @@ import csv
 import time
 
 
-ser = serial.Serial('COM4', 9600)  
+ser = serial.Serial('COM3', 9600)  
 totalAmostras = 200
 
-with open('dados.csv', 'w', newline='') as csv_file:
+with open('dadosSemPID.csv', 'w', newline='') as csv_file:
     csv_writer = csv.writer(csv_file)
     csv_writer.writerow(['RPM']) 
 

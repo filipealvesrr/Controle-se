@@ -12,7 +12,7 @@ with open('dadosTempo.csv', 'r') as csv_file:
         amostra_atual += 1
 
 plt.plot(data['Tempo'], data['RPM'], label='Valores RPM', color='orange', marker='o')
-plt.title('Valores de RPM ao longo do tempo')
+plt.title('Valores de RPM ao longo de 5 minutos')
 plt.xlabel('Tempo (Segundos)')
 plt.ylabel('Valores RPM')
 plt.legend()

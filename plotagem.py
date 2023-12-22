@@ -1,17 +1,17 @@
 import csv
 import matplotlib.pyplot as plt
 
-data = {'RPM': []}
-with open('dados.csv', 'r') as csv_file:
+data = {'PWM': []}
+with open('dadosPWM.csv', 'r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
     for row in csv_reader:
-        data['RPM'].append(float(row['RPM']))
+        data['PWM'].append(float(row['PWM']))
 
 plt.subplot(1, 1, 1)
-plt.plot(data['RPM'], label='Valores RPM', color='orange', marker='o')
-plt.title('Valores de RPM ao longo do tempo')
+plt.plot(data['PWM'], label='Valores PWM', color='orange', marker='o')
+plt.title('Valores de PWM por amostras')
 plt.xlabel('Amostras')
-plt.ylabel('Valores RPM')
+plt.ylabel('Valores PWM')
 plt.legend()
 
 plt.tight_layout()
